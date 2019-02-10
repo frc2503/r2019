@@ -9,11 +9,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.SetBothCylinders;
-import frc.robot.component.MountedTalon;
 
 /**
  * Subsystem for everything lifting
@@ -32,13 +32,13 @@ public class LiftSubsystem extends Subsystem {
   private DoubleSolenoid m_solenoidFront;
   private DoubleSolenoid m_solenoidBack;
 
-  private MountedTalon m_talonFoot;
+  private Talon m_talonFoot;
 
   public LiftSubsystem() {
     m_compressor = new Compressor();
     m_solenoidFront = new DoubleSolenoid(RobotMap.SOLENOID_FRONT_1, RobotMap.SOLENOID_FRONT_2);
     m_solenoidBack = new DoubleSolenoid(RobotMap.SOLENOID_BACK_1, RobotMap.SOLENOID_BACK_2);
-    m_talonFoot = new MountedTalon(RobotMap.TALON_FOOT);
+    m_talonFoot = new Talon(RobotMap.TALON_FOOT);
 
     // Start compressor
     m_compressor.setClosedLoopControl(true);
