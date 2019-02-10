@@ -7,8 +7,10 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveHuman;
 
@@ -25,6 +27,11 @@ public class DriveSubsystem extends Subsystem {
   private Talon m_talonBackLeft;
   private Talon m_talonBackRight;
 
+  private SpeedControllerGroup m_leftTalons;
+  private SpeedControllerGroup m_rightTalons;
+
+  private DifferentialDrive m_drive;
+
   public DriveSubsystem() {
     // This constructor is called on robotInit
     m_talonFrontLeft = new Talon(RobotMap.TALON_FRONT_LEFT);
@@ -32,15 +39,20 @@ public class DriveSubsystem extends Subsystem {
     m_talonBackLeft = new Talon(RobotMap.TALON_BACK_LEFT);
     m_talonBackRight = new Talon(RobotMap.TALON_BACK_RIGHT);
 
-    // Invert the Talons which are mounted backwards
-    m_talonFrontLeft.setInverted(true);
-    m_talonBackLeft.setInverted(true);
+    // Group Talons
+    m_leftTalons = new SpeedControllerGroup(m_talonFrontLeft, m_talonBackLeft);
+    m_rightTalons = new SpeedControllerGroup(m_talonFrontRight, m_talonBackRight);
+
+    // Invert left side
+    m_leftTalons.setInverted(true);
+
+    // Differential drive
+    m_drive = new DifferentialDrive(m_leftTalons, m_rightTalons);
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new DriveHuman());
   }
 
@@ -52,9 +64,6 @@ public class DriveSubsystem extends Subsystem {
    * @param right Speed of the right motors
    */
   public void driveTank(double left, double right) {
-    m_talonFrontLeft.set(left);
-    m_talonFrontRight.set(right);
-    m_talonBackLeft.set(left);
-    m_talonBackRight.set(right);
+    m_drive.tankDrive(left, right, false);
   }
 }
