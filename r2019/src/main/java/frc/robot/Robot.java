@@ -30,6 +30,7 @@ public class Robot extends TimedRobot {
   public static VisionSubsystem m_visionSystem;
   public static ElectricalSubsystem m_electicalSystem;
   public static LiftSubsystem m_liftSystem;
+  public static IntakeSubsystem m_intakeSystem;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -49,6 +50,7 @@ public class Robot extends TimedRobot {
     m_visionSystem = new VisionSubsystem();
     m_electicalSystem = new ElectricalSubsystem();
     m_liftSystem = new LiftSubsystem();
+    m_intakeSystem = new IntakeSubsystem();
     System.out.println("✓ Subsystems Ready");
 
     // chooser.addOption("My Auto", new MyAutoCommand());

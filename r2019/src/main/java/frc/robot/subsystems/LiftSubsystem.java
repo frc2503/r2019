@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.SetBothCylinders;
+import frc.robot.commands.SetLiftCylinders;
 
 /**
  * Subsystem for everything lifting
@@ -47,7 +47,7 @@ public class LiftSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new SetBothCylinders(CylinderState.kRetracted));
+    setDefaultCommand(new SetLiftCylinders(CylinderState.kRetracted));
   }
 
   /**

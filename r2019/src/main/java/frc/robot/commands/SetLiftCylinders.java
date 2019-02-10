@@ -10,11 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.subsystems.LiftSubsystem.CylinderState;
 
-public class SetBothCylinders extends CommandGroup {
+public class SetLiftCylinders extends CommandGroup {
   /**
    * Set the state of both cylinders
    */
-  public SetBothCylinders(CylinderState state) {
+  public SetLiftCylinders(CylinderState state) {
     addParallel(new SetFrontCylinder(state));
     addSequential(new SetBackCylinder(state));
   }
