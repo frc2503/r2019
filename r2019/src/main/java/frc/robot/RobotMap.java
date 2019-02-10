@@ -23,4 +23,10 @@ public class RobotMap {
   // Human input devices
   public static final int JOYSTICK_LEFT = 1;
   public static final int JOYSTICK_RIGHT = 0;
+
+  // Solenoids
+  public static final int SOLENOID_FRONT_1 = 0;
+  public static final int SOLENOID_FRONT_2 = 1;
+  public static final int SOLENOID_BACK_1 = 2;
+  public static final int SOLENOID_BACK_2 = 3;
 }
