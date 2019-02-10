@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.DriveHuman;
 import frc.robot.subsystems.*;
 
 /**
@@ -33,8 +34,10 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem m_intakeSystem;
   public static LightSubsystem m_lightSystem;
 
-  Command m_autonomousCommand;
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  Command m_autoCommand;
+  Command m_teleopCommand;
+
+  SendableChooser<Command> m_autoChooser = new SendableChooser<>();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -55,8 +58,8 @@ public class Robot extends TimedRobot {
     m_lightSystem = new LightSubsystem();
     System.out.println("✓ Subsystems Ready");
 
-    // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
+    // m_autoChooser.addOption("My Auto", new MyAutoCommand());
+    SmartDashboard.putData("Autonomous Routine", m_autoChooser);
 
     // Clear PCM and PDP sticky faults
     m_electicalSystem.clearStickyFaults();
@@ -105,19 +108,21 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_chooser.getSelected();
-
-    /*
-     * String autoSelected = SmartDashboard.getString("Auto Selector",
-     * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-     * = new MyAutoCommand(); break; case "Default Auto": default:
-     * autonomousCommand = new ExampleCommand(); break; }
-     */
-
-    // schedule the autonomous command (example)
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.start();
+    // Cancel the teleop command
+    if (m_teleopCommand != null) {
+      m_teleopCommand.cancel();
     }
+
+    // Cancel the auto command
+    if (m_autoCommand != null) {
+      m_autoCommand.cancel();
+    }
+
+    m_autoCommand = m_autoChooser.getSelected();
+    if (m_autoCommand != null) {
+      m_autoCommand.start();
+    }
+
   }
 
   /**
@@ -130,13 +135,18 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    // This makes sure that the autonomous stops running when
-    // teleop starts running. If you want the autonomous to
-    // continue until interrupted by another command, remove
-    // this line or comment it out.
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
+    // Cancel the teleop command
+    if (m_teleopCommand != null) {
+      m_teleopCommand.cancel();
     }
+
+    // Cancel the auto command
+    if (m_autoCommand != null) {
+      m_autoCommand.cancel();
+    }
+
+    m_teleopCommand = new DriveHuman();
+    m_teleopCommand.start();
   }
 
   /**
