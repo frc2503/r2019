@@ -38,7 +38,7 @@
               "_title": "FMS Info"
             }
           },
-          "5,0": {
+          "5,1": {
             "size": [
               3,
               3
@@ -51,7 +51,7 @@
               "Visuals/Show velocity vectors": true
             }
           },
-          "8,0": {
+          "10,0": {
             "size": [
               3,
               3
@@ -62,7 +62,7 @@
               "Visuals/Show voltage and current values": true
             }
           },
-          "5,5": {
+          "5,0": {
             "size": [
               5,
               1
@@ -70,17 +70,6 @@
             "content": {
               "_type": "ComboBox Chooser",
               "_title": "Autonomous Routine"
-            }
-          },
-          "11,0": {
-            "size": [
-              2,
-              3
-            ],
-            "content": {
-              "_type": "Robot Preferences",
-              "_title": "Robot Preferences",
-              "Miscellaneous/Show search box": true
             }
           },
           "10,3": {
@@ -93,21 +82,7 @@
               "_title": "Network Table Tree"
             }
           },
-          "5,3": {
-            "size": [
-              1,
-              2
-            ],
-            "content": {
-              "_type": "3-Axis Accelerometer",
-              "_title": "Acceleration",
-              "Accelerometer/Range": "k16G",
-              "Visuals/Show value": true,
-              "Visuals/Precision": 2,
-              "Visuals/Show tick marks": false
-            }
-          },
-          "6,3": {
+          "6,4": {
             "size": [
               2,
               1
@@ -117,7 +92,7 @@
               "_title": "Lift Subsystem"
             }
           },
-          "6,4": {
+          "6,5": {
             "size": [
               2,
               1
@@ -127,7 +102,7 @@
               "_title": "Drive Subsystem"
             }
           },
-          "8,3": {
+          "8,4": {
             "size": [
               2,
               1
@@ -137,7 +112,7 @@
               "_title": "Intake Subsystem"
             }
           },
-          "8,4": {
+          "8,5": {
             "size": [
               2,
               1
@@ -145,6 +120,40 @@
             "content": {
               "_type": "Basic Subsystem",
               "_title": "Light Subsystem"
+            }
+          },
+          "5,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_title": "Compressor",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "8,1": {
+            "size": [
+              2,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Autonomous Schedule",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
+          },
+          "5,5": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_title": "Bandwidth"
             }
           }
         }
