@@ -12,7 +12,7 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * Add your docs here.
+ * Subsystem for our USB webcam
  */
 public class VisionSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
