@@ -28,6 +28,8 @@ public class Robot extends TimedRobot {
   // Subsystems
   public static DriveSubsystem m_driveSystem;
   public static VisionSubsystem m_visionSystem;
+  public static ElectricalSubsystem m_electicalSystem;
+  public static LiftSubsystem m_liftSystem;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -40,11 +42,24 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Operator Input
     m_oi = new OI();
+    System.out.println("✓ Operator Input Ready");
+
     // Subsystems
     m_driveSystem = new DriveSubsystem();
     m_visionSystem = new VisionSubsystem();
+    m_electicalSystem = new ElectricalSubsystem();
+    m_liftSystem = new LiftSubsystem();
+    System.out.println("✓ Subsystems Ready");
+
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+
+    // Clear PCM and PDP sticky faults
+    m_electicalSystem.clearStickyFaults();
+    m_liftSystem.clearStickyFaults();
+    System.out.println("✓ Sticky faults cleared");
+
+    System.out.println("✓ READY TO LAUNCH");
   }
 
   /**
