@@ -37,4 +37,7 @@ public class RobotMap {
 
   // Hatch clamp servo
   public static final int SERVO_CLAMP = 5;
+
+  // Light relay
+  public static final int RELAY_LIGHTS = 0;
 }
