@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.SetLights;
+import frc.robot.commands.SetLights.LightState;
 
 /**
  * The light subsystem is used for diagnostics
@@ -28,7 +30,7 @@ public class LightSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new SetLights(LightState.kOff));
   }
 
   /**
@@ -36,13 +38,15 @@ public class LightSubsystem extends Subsystem {
    * @param on If the lights should be on
    */
   public void setLights(boolean on) {
-    m_lightRelay.set(on ? Value.kForward : Value.kOff);
+    // Relay acts as an electronic switch
+    m_lightRelay.set(on ? Value.kOn : Value.kOff);
   }
 
   /**
    * Toggle lights
    */
   public void toggleLights() {
+    // If not off, then it's on
     if (m_lightRelay.get() == Value.kOff) {
       setLights(true);
     } else {
