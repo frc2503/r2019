@@ -27,6 +27,7 @@ public class Robot extends TimedRobot {
 
   // Subsystems
   public static DriveSubsystem m_driveSystem;
+  public static VisionSubsystem m_visionSystem;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -41,6 +42,7 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     // Subsystems
     m_driveSystem = new DriveSubsystem();
+    m_visionSystem = new VisionSubsystem();
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }
