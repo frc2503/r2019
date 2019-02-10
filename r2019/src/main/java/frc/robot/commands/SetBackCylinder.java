@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.LiftSubsystem.CylinderState;
 
-public class SetBackCylinderCommand extends Command {
+public class SetBackCylinder extends Command {
 
   private Timer m_timer;
   private CylinderState m_state;
@@ -21,7 +21,7 @@ public class SetBackCylinderCommand extends Command {
   // Time it takes to extend or retract
   private static final double ACTUATE_TIME = 2.0;
 
-  public SetBackCylinderCommand(CylinderState state) {
+  public SetBackCylinder(CylinderState state) {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_liftSystem);
     m_state = state;

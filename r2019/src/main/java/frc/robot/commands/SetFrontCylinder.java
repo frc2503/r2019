@@ -7,63 +7,57 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.LiftSubsystem.CylinderState;
 
-public class HumanDriveCommand extends Command {
+public class SetFrontCylinder extends Command {
 
-  private Joystick m_leftStick;
-  private Joystick m_rightStick;
+  private Timer m_timer;
+  private CylinderState m_state;
 
-  public HumanDriveCommand() {
+  // Time it takes to extend or retract
+  private static final double ACTUATE_TIME = 2.0;
+
+  public SetFrontCylinder(CylinderState state) {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_driveSystem);
+    requires(Robot.m_liftSystem);
+    m_state = state;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    m_leftStick = Robot.m_oi.m_leftStick;
-    m_rightStick = Robot.m_oi.m_rightStick;
+    m_timer.start();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // Get left and right values from joysticks
-    double leftVal = m_leftStick.getY();
-    double rightVal = m_rightStick.getY();
-
-    // The values need to be inverted because we want "up" on the controller to
-    // be forward, which is positive
-
-    leftVal = leftVal * -1.0;
-    rightVal = rightVal * -1.0;
-
-    // The robot is much easier to control when the inputs from the joysticks
-    // are quadratic instead of linear. This allows for finer control at lower speeds
-    // while still being able to reach full speed.
-
-    // Squaring the input here would not work here because the sign of the input needs
-    // to be preserved in order to drive backwards
-
-    leftVal = leftVal * Math.abs(leftVal);
-    rightVal = rightVal * Math.abs(rightVal);
-
-    // Drive
-    Robot.m_driveSystem.driveTank(leftVal, rightVal);
+    // Set solenoid value
+    switch (m_state) {
+      case kExtended:
+        Robot.m_liftSystem.setFrontCylinder(Value.kForward);
+        break;
+      case kRetracted:
+        Robot.m_liftSystem.setFrontCylinder(Value.kReverse);
+        break;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    // Wait until the command has run for ACTUATE_TIME seconds
+    return m_timer.get() > ACTUATE_TIME;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.m_liftSystem.setFrontCylinder(Value.kOff);
   }
 
   // Called when another command which requires one or more of the same
