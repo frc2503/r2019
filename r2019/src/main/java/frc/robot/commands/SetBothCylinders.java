@@ -12,7 +12,7 @@ import frc.robot.subsystems.LiftSubsystem.CylinderState;
 
 public class SetBothCylinders extends CommandGroup {
   /**
-   * Add your docs here.
+   * Set the state of both cylinders
    */
   public SetBothCylinders(CylinderState state) {
     addParallel(new SetFrontCylinder(state));
