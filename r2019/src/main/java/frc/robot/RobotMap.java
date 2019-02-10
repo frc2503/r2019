@@ -32,4 +32,9 @@ public class RobotMap {
   public static final int SOLENOID_FRONT_2 = 1;
   public static final int SOLENOID_BACK_1 = 2;
   public static final int SOLENOID_BACK_2 = 3;
+  public static final int SOLENOID_ARM_1 = 4;
+  public static final int SOLENOID_ARM_2 = 5;
+
+  // Hatch clamp servo
+  public static final int SERVO_CLAMP = 5;
 }
