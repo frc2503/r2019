@@ -20,6 +20,9 @@ public class RobotMap {
   public static final int TALON_BACK_LEFT = 1;
   public static final int TALON_BACK_RIGHT = 0;
 
+  // Foot Talon
+  public static final int TALON_FOOT = 4;
+
   // Human input devices
   public static final int JOYSTICK_LEFT = 1;
   public static final int JOYSTICK_RIGHT = 0;
