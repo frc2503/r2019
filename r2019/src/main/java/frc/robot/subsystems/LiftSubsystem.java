@@ -29,7 +29,9 @@ public class LiftSubsystem extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  // Clear Pneumatic Control System sticky faults
+  /**
+   * Clear Pneumatic Control System sticky faults
+   */
   public void clearStickyFaults() {
     m_compressor.clearAllPCMStickyFaults();
   }
