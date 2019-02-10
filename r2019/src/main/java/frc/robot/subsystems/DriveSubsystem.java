@@ -7,10 +7,10 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveHuman;
-import frc.robot.component.MountedTalon;
 
 /**
  * Subsystem for interacting with the 4 drive motors
@@ -20,17 +20,21 @@ public class DriveSubsystem extends Subsystem {
   // here. Call these from Commands.
 
   // Talon SRs are used to control our 4 drive motors
-  private MountedTalon m_talonFrontLeft;
-  private MountedTalon m_talonFrontRight;
-  private MountedTalon m_talonBackLeft;
-  private MountedTalon m_talonBackRight;
+  private Talon m_talonFrontLeft;
+  private Talon m_talonFrontRight;
+  private Talon m_talonBackLeft;
+  private Talon m_talonBackRight;
 
   public DriveSubsystem() {
     // This constructor is called on robotInit
-    m_talonFrontLeft = new MountedTalon(RobotMap.TALON_FRONT_LEFT);
-    m_talonFrontRight = new MountedTalon(RobotMap.TALON_FRONT_RIGHT);
-    m_talonBackLeft = new MountedTalon(RobotMap.TALON_BACK_LEFT);
-    m_talonBackRight = new MountedTalon(RobotMap.TALON_BACK_RIGHT);
+    m_talonFrontLeft = new Talon(RobotMap.TALON_FRONT_LEFT);
+    m_talonFrontRight = new Talon(RobotMap.TALON_FRONT_RIGHT);
+    m_talonBackLeft = new Talon(RobotMap.TALON_BACK_LEFT);
+    m_talonBackRight = new Talon(RobotMap.TALON_BACK_RIGHT);
+
+    // Invert the Talons which are mounted backwards
+    m_talonFrontLeft.setInverted(true);
+    m_talonBackLeft.setInverted(true);
   }
 
   @Override
