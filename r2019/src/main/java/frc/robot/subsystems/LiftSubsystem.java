@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.SetBothCylinders;
+import frc.robot.component.MountedTalon;
 
 /**
  * Subsystem for everything lifting
@@ -30,10 +32,13 @@ public class LiftSubsystem extends Subsystem {
   private DoubleSolenoid m_solenoidFront;
   private DoubleSolenoid m_solenoidBack;
 
+  private MountedTalon m_talonFoot;
+
   public LiftSubsystem() {
     m_compressor = new Compressor();
     m_solenoidFront = new DoubleSolenoid(RobotMap.SOLENOID_FRONT_1, RobotMap.SOLENOID_FRONT_2);
     m_solenoidBack = new DoubleSolenoid(RobotMap.SOLENOID_BACK_1, RobotMap.SOLENOID_BACK_2);
+    m_talonFoot = new MountedTalon(RobotMap.TALON_FOOT);
 
     // Start compressor
     m_compressor.setClosedLoopControl(true);
@@ -42,7 +47,7 @@ public class LiftSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new SetBothCylinders(CylinderState.kRetracted));
   }
 
   /**
@@ -66,5 +71,13 @@ public class LiftSubsystem extends Subsystem {
    */
   public void setBackCylinder(Value value) {
     m_solenoidBack.set(value);
+  }
+
+  /**
+   * Drive the wheel on the back cylinder
+   * @param speed Motor speed
+   */
+  public void driveFoot(double speed) {
+    m_talonFoot.set(speed);
   }
 }
