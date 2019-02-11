@@ -44,6 +44,8 @@ public class SetIntakeCylinder extends Command {
       case kRetracted:
         Robot.m_intakeSystem.setCylinder(Value.kReverse);
         break;
+      default:
+        break;
     }
   }
 
