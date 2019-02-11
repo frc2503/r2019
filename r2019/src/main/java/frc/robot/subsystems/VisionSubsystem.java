@@ -18,15 +18,13 @@ public class VisionSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private UsbCamera m_camera;
-
   public VisionSubsystem() {
     // Just use the only camera plugged in.
     // If we need more cameras, they will need to be indexed
-    m_camera = CameraServer.getInstance().startAutomaticCapture();
+    UsbCamera mainCamera = CameraServer.getInstance().startAutomaticCapture();
     // FIXME: Lower to meet bandwidth requirements
-    m_camera.setResolution(640, 480);
-    m_camera.setFPS(24);
+    mainCamera.setResolution(640, 480);
+    mainCamera.setFPS(24);
   }
 
   @Override
