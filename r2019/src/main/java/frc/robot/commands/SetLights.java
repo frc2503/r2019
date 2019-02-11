@@ -52,11 +52,13 @@ public class SetLights extends Command {
           Robot.m_lightSystem.toggleLights();
           m_timer.reset();
         }
+        break;
       case kBlinkMedium:
         if (m_timer.get() > 0.5) {
           Robot.m_lightSystem.toggleLights();
           m_timer.reset();
         }
+        break;
       case kBlinkFast:
         if (m_timer.get() > 0.25) {
           Robot.m_lightSystem.toggleLights();
