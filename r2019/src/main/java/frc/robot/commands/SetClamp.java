@@ -40,6 +40,8 @@ public class SetClamp extends Command {
       case kClosed:
         m_requiredValue = CLOSED_POSITION;
         break;
+      default:
+        break;
     }
   }
 
@@ -53,16 +55,5 @@ public class SetClamp extends Command {
   @Override
   protected boolean isFinished() {
     return Math.abs(m_requiredValue - Robot.m_intakeSystem.getClampServo()) < SERVO_DEADBAND;
-  }
-
-  // Called once after isFinished returns true
-  @Override
-  protected void end() {
-  }
-
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
-  @Override
-  protected void interrupted() {
   }
 }
