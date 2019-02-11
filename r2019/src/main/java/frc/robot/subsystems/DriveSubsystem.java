@@ -35,9 +35,6 @@ public class DriveSubsystem extends Subsystem {
       new Talon(RobotMap.TALON_BACK_RIGHT)
     );
 
-    // Invert left side
-    leftTalons.setInverted(true);
-
     // Differential drive
     m_drive = new DifferentialDrive(leftTalons, rightTalons);
   }
