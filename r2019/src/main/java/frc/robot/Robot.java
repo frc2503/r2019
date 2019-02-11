@@ -56,7 +56,7 @@ public class Robot extends TimedRobot {
     m_liftSystem = new LiftSubsystem();
     m_intakeSystem = new IntakeSubsystem();
     m_lightSystem = new LightSubsystem();
-    System.out.println("✓ Subsystems Ready");
+    System.out.println("Subsystems Ready");
 
     // m_autoChooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Autonomous Routine", m_autoChooser);
@@ -64,9 +64,9 @@ public class Robot extends TimedRobot {
     // Clear PCM and PDP sticky faults
     m_electicalSystem.clearStickyFaults();
     m_liftSystem.clearStickyFaults();
-    System.out.println("✓ Sticky faults cleared");
+    System.out.println("Sticky faults cleared");
 
-    System.out.println("✓ READY TO LAUNCH");
+    System.out.println("READY TO LAUNCH");
   }
 
   @Override
