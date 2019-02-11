@@ -34,10 +34,10 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem m_intakeSystem;
   public static LightSubsystem m_lightSystem;
 
-  Command m_autoCommand;
-  Command m_teleopCommand;
+  private Command m_autoCommand;
+  private Command m_teleopCommand;
 
-  SendableChooser<Command> m_autoChooser = new SendableChooser<>();
+  private SendableChooser<Command> m_autoChooser = new SendableChooser<>();
 
   /**
    * This function is run when the robot is first started up and should be
