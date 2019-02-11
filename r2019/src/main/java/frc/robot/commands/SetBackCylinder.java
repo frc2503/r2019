@@ -44,6 +44,8 @@ public class SetBackCylinder extends Command {
       case kRetracted:
         Robot.m_liftSystem.setBackCylinder(Value.kReverse);
         break;
+      default:
+        break;
     }
   }
 

@@ -65,6 +65,9 @@ public class SetLights extends Command {
           m_timer.reset();
         }
         break;
+      default:
+        Robot.m_lightSystem.setLights(false);
+        break;
     }
   }
 

@@ -40,6 +40,8 @@ public class SetClamp extends Command {
       case kClosed:
         m_requiredValue = CLOSED_POSITION;
         break;
+      default:
+        break;
     }
   }
 
