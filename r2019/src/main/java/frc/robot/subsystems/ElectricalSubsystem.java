@@ -7,7 +7,7 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.PowerDistributionPanel;
+// import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -17,10 +17,12 @@ public class ElectricalSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private PowerDistributionPanel m_powerDistributionPanel;
+  // private PowerDistributionPanel m_powerDistributionPanel;
 
   public ElectricalSubsystem() {
-    m_powerDistributionPanel = new PowerDistributionPanel();
+    // Disabled as temporary fix for issue #8
+    // m_powerDistributionPanel = new PowerDistributionPanel();
+    System.out.println("Warning: Electircal system is temporarily disabled");
   }
 
   @Override
@@ -32,6 +34,7 @@ public class ElectricalSubsystem extends Subsystem {
    * Clear Power Distribution Board sticky faults
    */
   public void clearStickyFaults() {
-    m_powerDistributionPanel.clearStickyFaults();
+    // m_powerDistributionPanel.clearStickyFaults();
+    System.out.println("Warning: Electircal system is temporarily disabled");
   }
 }
