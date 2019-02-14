@@ -7,7 +7,6 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -26,14 +25,9 @@ public class DriveSubsystem extends Subsystem {
     // This constructor is called on robotInit
 
     // 4 Talon SRs are used to control our drive motors
-    SpeedControllerGroup leftTalons = new SpeedControllerGroup(
-      new Talon(RobotMap.talonFrontLeft),
-      new Talon(RobotMap.talonBackLeft)
-    );
-    SpeedControllerGroup rightTalons = new SpeedControllerGroup(
-      new Talon(RobotMap.talonFrontLeft),
-      new Talon(RobotMap.talonFrontRight)
-    );
+    // Both Talons on either side use the same PWM signal
+    Talon leftTalons = new Talon(RobotMap.talonsLeft);
+    Talon rightTalons = new Talon(RobotMap.talonsRight);
 
     // Differential drive
     m_drive = new DifferentialDrive(leftTalons, rightTalons);
