@@ -36,9 +36,9 @@ public class LiftSubsystem extends Subsystem {
 
   public LiftSubsystem() {
     m_compressor = new Compressor();
-    m_solenoidFront = new DoubleSolenoid(RobotMap.SOLENOID_FRONT_1, RobotMap.SOLENOID_FRONT_2);
-    m_solenoidBack = new DoubleSolenoid(RobotMap.SOLENOID_BACK_1, RobotMap.SOLENOID_BACK_2);
-    m_talonFoot = new Talon(RobotMap.TALON_FOOT);
+    m_solenoidFront = new DoubleSolenoid(RobotMap.solenoidFront1, RobotMap.solenoidFront2);
+    m_solenoidBack = new DoubleSolenoid(RobotMap.solenoidBack1, RobotMap.solenoidBack2);
+    m_talonFoot = new Talon(RobotMap.talonFoot);
 
     // Start compressor
     m_compressor.setClosedLoopControl(true);

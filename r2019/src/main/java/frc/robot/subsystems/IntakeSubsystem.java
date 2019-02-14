@@ -25,8 +25,8 @@ public class IntakeSubsystem extends Subsystem {
   private Servo m_servoClamp;
 
   public IntakeSubsystem() {
-    m_solenoidArm = new DoubleSolenoid(RobotMap.SOLENOID_ARM_1, RobotMap.SOLENOID_ARM_2);
-    m_servoClamp = new Servo(RobotMap.SERVO_CLAMP);
+    m_solenoidArm = new DoubleSolenoid(RobotMap.solenoidArm1, RobotMap.solenoidArm2);
+    m_servoClamp = new Servo(RobotMap.servoClamp);
   }
 
   @Override

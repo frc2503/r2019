@@ -24,7 +24,7 @@ public class LightSubsystem extends Subsystem {
   private Relay m_lightRelay;
 
   public LightSubsystem() {
-    m_lightRelay = new Relay(RobotMap.RELAY_LIGHTS);
+    m_lightRelay = new Relay(RobotMap.relayLight);
   }
 
   @Override

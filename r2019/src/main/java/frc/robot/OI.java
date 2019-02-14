@@ -18,7 +18,7 @@ public class OI {
   public Joystick m_rightStick;
 
   public OI() {
-    m_leftStick = new Joystick(RobotMap.JOYSTICK_LEFT);
-    m_rightStick = new Joystick(RobotMap.JOYSTICK_RIGHT);
+    m_leftStick = new Joystick(RobotMap.joystickLeft);
+    m_rightStick = new Joystick(RobotMap.joystickRight);
   }
 }
