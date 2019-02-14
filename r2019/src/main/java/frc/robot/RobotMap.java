@@ -15,10 +15,8 @@ package frc.robot;
  */
 public class RobotMap {
   // Drive Talons
-  public static final int talonFrontLeft = 2;
-  public static final int talonFrontRight = 3;
-  public static final int talonBackLeft = 1;
-  public static final int talonBackRight = 0;
+  public static final int talonsLeft = 0;
+  public static final int talonsRight = 1;
 
   // Foot Talon
   public static final int talonFoot = 4;
