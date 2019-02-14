@@ -27,12 +27,12 @@ public class DriveSubsystem extends Subsystem {
 
     // 4 Talon SRs are used to control our drive motors
     SpeedControllerGroup leftTalons = new SpeedControllerGroup(
-      new Talon(RobotMap.TALON_FRONT_LEFT),
-      new Talon(RobotMap.TALON_BACK_LEFT)
+      new Talon(RobotMap.talonFrontLeft),
+      new Talon(RobotMap.talonBackLeft)
     );
     SpeedControllerGroup rightTalons = new SpeedControllerGroup(
-      new Talon(RobotMap.TALON_FRONT_RIGHT),
-      new Talon(RobotMap.TALON_BACK_RIGHT)
+      new Talon(RobotMap.talonFrontLeft),
+      new Talon(RobotMap.talonFrontRight)
     );
 
     // Differential drive
