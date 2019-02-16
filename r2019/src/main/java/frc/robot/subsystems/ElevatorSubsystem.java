@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.SetElevator;
 
 /**
  * Add your docs here.
@@ -17,6 +18,12 @@ import frc.robot.RobotMap;
 public class ElevatorSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+
+  public static enum ElevatorState {
+    kUp,
+    kDown,
+    kOff
+  }
 
   private Talon m_elevatorTalon;
 
@@ -27,7 +34,7 @@ public class ElevatorSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new SetElevator());
   }
 
   public void setElevator(double value) {
