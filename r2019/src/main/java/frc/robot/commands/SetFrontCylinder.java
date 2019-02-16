@@ -23,7 +23,7 @@ public class SetFrontCylinder extends Command {
 
   public SetFrontCylinder(CylinderState state) {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_frontLift);
+    requires(Robot.m_frontLiftSystem);
     m_state = state;
     m_timer = new Timer();
   }
@@ -40,10 +40,10 @@ public class SetFrontCylinder extends Command {
     // Set solenoid value
     switch (m_state) {
       case kExtended:
-        Robot.m_frontLift.setCylinder(Value.kForward);
+        Robot.m_frontLiftSystem.setCylinder(Value.kForward);
         break;
       case kRetracted:
-        Robot.m_frontLift.setCylinder(Value.kReverse);
+        Robot.m_frontLiftSystem.setCylinder(Value.kReverse);
         break;
       default:
         break;
@@ -61,7 +61,7 @@ public class SetFrontCylinder extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_frontLift.setCylinder(Value.kOff);
+    Robot.m_frontLiftSystem.setCylinder(Value.kOff);
   }
 
   // Called when another command which requires one or more of the same

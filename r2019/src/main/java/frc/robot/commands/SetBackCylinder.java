@@ -23,7 +23,7 @@ public class SetBackCylinder extends Command {
 
   public SetBackCylinder(CylinderState state) {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_backLift);
+    requires(Robot.m_backLiftSystem);
     m_state = state;
     m_timer = new Timer();
   }
@@ -40,10 +40,10 @@ public class SetBackCylinder extends Command {
     // Set solenoid value
     switch (m_state) {
       case kExtended:
-        Robot.m_backLift.setCylinder(Value.kForward);
+        Robot.m_backLiftSystem.setCylinder(Value.kForward);
         break;
       case kRetracted:
-        Robot.m_backLift.setCylinder(Value.kReverse);
+        Robot.m_backLiftSystem.setCylinder(Value.kReverse);
         break;
       default:
         break;
@@ -60,7 +60,7 @@ public class SetBackCylinder extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_backLift.setCylinder(Value.kOff);
+    Robot.m_backLiftSystem.setCylinder(Value.kOff);
   }
 
   // Called when another command which requires one or more of the same
