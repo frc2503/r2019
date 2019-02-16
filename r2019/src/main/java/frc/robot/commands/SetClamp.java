@@ -20,9 +20,8 @@ public class SetClamp extends Command {
   private ClampState m_state;
   private double m_requiredValue;
 
-  private static final double SERVO_DEADBAND = 0.05;
-  private static final double OPENED_POSITION = 0.7;
-  private static final double CLOSED_POSITION = 0.3;
+  private static final double OPENED_POSITION = 0.75;
+  private static final double CLOSED_POSITION = 0.1;
 
   public SetClamp(ClampState state) {
     // Use requires() here to declare subsystem dependencies
@@ -54,6 +53,7 @@ public class SetClamp extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Math.abs(m_requiredValue - Robot.m_intakeSystem.getClampServo()) < SERVO_DEADBAND;
+    return true;
+    // return Math.abs(m_requiredValue - Robot.m_intakeSystem.getClampServo()) < SERVO_DEADBAND;
   }
 }

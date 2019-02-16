@@ -8,6 +8,12 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.SetBackCylinder;
+import frc.robot.commands.SetClamp;
+import frc.robot.commands.SetFrontCylinder;
+import frc.robot.commands.SetClamp.ClampState;
+import frc.robot.subsystems.CylinderState;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -17,8 +23,33 @@ public class OI {
   public Joystick m_leftStick;
   public Joystick m_rightStick;
 
+  private JoystickButton m_left2;
+  private JoystickButton m_right2;
+
+  private JoystickButton m_left4;
+  private JoystickButton m_right4;
+
+  private JoystickButton m_left3;
+  private JoystickButton m_right3;
+
   public OI() {
     m_leftStick = new Joystick(RobotMap.joystickLeft);
     m_rightStick = new Joystick(RobotMap.joystickRight);
+
+    m_left2 = new JoystickButton(m_leftStick, 2);
+    m_right2 = new JoystickButton(m_rightStick, 2);
+    m_left4 = new JoystickButton(m_leftStick, 4);
+    m_right4 = new JoystickButton(m_rightStick, 4);
+    m_left3 = new JoystickButton(m_leftStick, 3);
+    m_right3 = new JoystickButton(m_rightStick, 3);
+
+    m_left2.whenPressed(new SetClamp(ClampState.kOpen));
+    m_right2.whenPressed(new SetClamp(ClampState.kClosed)); 
+    
+    m_left3.whenPressed(new SetBackCylinder(CylinderState.kRetracted));
+    m_left4.whenPressed(new SetBackCylinder(CylinderState.kExtended));
+
+    m_right3.whenPressed(new SetFrontCylinder(CylinderState.kRetracted));
+    m_right4.whenActive(new SetFrontCylinder(CylinderState.kExtended));
   }
 }
