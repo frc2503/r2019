@@ -21,6 +21,12 @@ public class PneumaticsSubsystem extends Subsystem {
 
   public PneumaticsSubsystem() {
     m_compressor = new Compressor();
+
+    m_compressor.setClosedLoopControl(true);
+  }
+
+  public void clearStickyFaults() {
+    m_compressor.clearAllPCMStickyFaults();
   }
 
   @Override
