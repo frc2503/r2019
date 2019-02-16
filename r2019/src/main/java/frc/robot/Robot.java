@@ -35,7 +35,7 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem m_intakeSystem;
   public static LightSubsystem m_lightSystem;
   public static PneumaticsSubsystem m_pneumaticSystem;
-  private static ElevatorSubsystem m_elevatorSystem;
+  public static ElevatorSubsystem m_elevatorSystem;
 
   private Command m_autoCommand;
   private Command m_teleopCommand;
