@@ -19,7 +19,7 @@ public class RobotMap {
   public static final int talonsRight = 1;
 
   // Foot Talon
-  public static final int talonFoot = 4;
+  public static final int talonFoot = 3;
 
   // Human input devices
   public static final int joystickLeft = 1;
@@ -34,8 +34,11 @@ public class RobotMap {
   public static final int solenoidArm2 = 5;
 
   // Hatch clamp servo
-  public static final int servoClamp = 5;
+  public static final int servoClamp = 4;
 
   // Light relay
   public static final int relayLight = 0;
+
+  // Elevator
+  public static final int talonElevator = 2;
 }
