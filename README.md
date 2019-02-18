@@ -5,8 +5,7 @@
 [![Codacy](https://img.shields.io/codacy/grade/a52adf6bbffc45b79713ea58ca2f1538.svg?logo=codacy&logoColor=green&style=popout-square)](https://app.codacy.com/project/hunterkva/r2019/dashboard)
 
 ## Wiring Overview
-
-###PWM
+### PWM
 | Port  | Component  |
 | ------------ | ------------ |
 | 0  | Left Drive Talon SRs (Y-Split)  |
