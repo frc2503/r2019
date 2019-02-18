@@ -9,7 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.RaiseSolenoids;
+import frc.robot.commands.RaiseBot;
 import frc.robot.commands.SetBackCylinder;
 import frc.robot.commands.SetFrontCylinder;
 import frc.robot.subsystems.CylinderState;
@@ -48,6 +48,6 @@ public class OI {
     m_right3.whenPressed(new SetFrontCylinder(CylinderState.kRetracted));
     // m_right4.whenActive(new SetFrontCylinder(CylinderState.kExtended));
 
-    m_right5.whenPressed(new RaiseSolenoids());
+    m_right5.whenPressed(new RaiseBot());
   }
 }
