@@ -22,11 +22,11 @@ public class DriveTrapezoid extends Command {
   private double m_decelTime;
   private double m_cruiseTime;
 
+  private Timer m_timer;
+
   // Magic numbers
   private final double m_kDefaultAccelTime = 0.5;
   private final double m_kDefaultDecelTime = 0.5;
-
-  private Timer m_timer;
 
   /**
    * Drive autonomously with a trapezoidal motion profile

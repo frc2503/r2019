@@ -7,66 +7,35 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class SetLights extends Command {
+public class SetElevator extends Command {
 
-  public static enum LightState {
-    kOff,
-    kOn,
-    kBlinkSlow,
-    kBlinkMedium,
-    kBlinkFast
-  }
+  private static final double kElevatorSpeed = 0.25;
 
-  private Timer m_timer;
-  private LightState m_state;
-
-  public SetLights(LightState state) {
+  public SetElevator() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_lightSystem);
-    m_timer = new Timer();
-    m_state = state;
+    requires(Robot.m_elevatorSystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    m_timer.start();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    switch(m_state) {
-      case kOff:
-        Robot.m_lightSystem.setLights(false);
+    switch (Robot.m_oi.m_gamepad.getPOV()) {
+      case 0:
+        Robot.m_elevatorSystem.setElevator(kElevatorSpeed * -1);
         break;
-      case kOn:
-        Robot.m_lightSystem.setLights(true);
-        break;
-      case kBlinkSlow:
-        if (m_timer.get() > 1.0) {
-          Robot.m_lightSystem.toggleLights();
-          m_timer.reset();
-        }
-        break;
-      case kBlinkMedium:
-        if (m_timer.get() > 0.5) {
-          Robot.m_lightSystem.toggleLights();
-          m_timer.reset();
-        }
-        break;
-      case kBlinkFast:
-        if (m_timer.get() > 0.25) {
-          Robot.m_lightSystem.toggleLights();
-          m_timer.reset();
-        }
+      case 180:
+        Robot.m_elevatorSystem.setElevator(kElevatorSpeed);
         break;
       default:
-        Robot.m_lightSystem.setLights(false);
+        Robot.m_elevatorSystem.setElevator(0.0);
         break;
     }
   }
@@ -80,7 +49,7 @@ public class SetLights extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_lightSystem.setLights(false);
+    Robot.m_elevatorSystem.setElevator(0.0);
   }
 
   // Called when another command which requires one or more of the same

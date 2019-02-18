@@ -8,15 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.commands.SetClamp.ClampState;
-import frc.robot.subsystems.LiftSubsystem.CylinderState;
+import frc.robot.subsystems.CylinderState;
 
-public class ResetIntake extends CommandGroup {
-  /**
-   * Set the intake to the default position
-   */
-  public ResetIntake() {
-    addParallel(new SetIntakeCylinder(CylinderState.kRetracted));
-    addSequential(new SetClamp(ClampState.kClosed));
+public class RaiseBot extends CommandGroup {
+  
+  public RaiseBot() {
+
+    addParallel(new SetFrontCylinder(CylinderState.kExtended));
+    addParallel(new SetBackCylinder(CylinderState.kExtended));
   }
 }

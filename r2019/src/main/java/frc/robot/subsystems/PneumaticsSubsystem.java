@@ -7,28 +7,39 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * Subsystem for our USB webcam
+ * Add your docs here.
  */
-public class VisionSubsystem extends Subsystem {
+public class PneumaticsSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public VisionSubsystem() {
-    // Just use the only camera plugged in.
-    // If we need more cameras, they will need to be indexed
-    UsbCamera mainCamera = CameraServer.getInstance().startAutomaticCapture();
-    // FIXME: Lower to meet bandwidth requirements
-    mainCamera.setResolution(640, 480);
-    mainCamera.setFPS(24);
+  private Compressor m_compressor;
+
+  public PneumaticsSubsystem() {
+    m_compressor = new Compressor();
+
+    m_compressor.setClosedLoopControl(true);
+    m_compressor.start();
+  }
+
+  public void clearStickyFaults() {
+    m_compressor.clearAllPCMStickyFaults();
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
+  }
+
+  public boolean getPressureSwitch() {
+    return m_compressor.getPressureSwitchValue();
+  }
+
+  public double getCompressorCurrent() {
+    return m_compressor.getCompressorCurrent();
   }
 }

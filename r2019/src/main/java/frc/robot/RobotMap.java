@@ -15,29 +15,29 @@ package frc.robot;
  */
 public class RobotMap {
   // Drive Talons
-  public static final int TALON_FRONT_LEFT = 2;
-  public static final int TALON_FRONT_RIGHT = 3;
-  public static final int TALON_BACK_LEFT = 1;
-  public static final int TALON_BACK_RIGHT = 0;
+  public static final int talonsLeft = 0;
+  public static final int talonsRight = 1;
 
   // Foot Talon
-  public static final int TALON_FOOT = 4;
+  public static final int talonFoot = 3;
 
   // Human input devices
-  public static final int JOYSTICK_LEFT = 1;
-  public static final int JOYSTICK_RIGHT = 0;
+  public static final int joystickLeft = 1;
+  public static final int joystickRight = 0;
+  public static final int gamepad = 2;
 
   // Solenoids
-  public static final int SOLENOID_FRONT_1 = 0;
-  public static final int SOLENOID_FRONT_2 = 1;
-  public static final int SOLENOID_BACK_1 = 2;
-  public static final int SOLENOID_BACK_2 = 3;
-  public static final int SOLENOID_ARM_1 = 4;
-  public static final int SOLENOID_ARM_2 = 5;
+  public static final int solenoidFrontForward = 0;
+  public static final int solenoidFrontReverse = 1;
+  public static final int solenoidBackForward = 2;
+  public static final int solenoidBackReverse = 3;
 
   // Hatch clamp servo
-  public static final int SERVO_CLAMP = 5;
+  public static final int servoClamp = 4;
 
   // Light relay
-  public static final int RELAY_LIGHTS = 0;
+  public static final int relayLight = 0;
+
+  // Elevator
+  public static final int talonElevator = 2;
 }

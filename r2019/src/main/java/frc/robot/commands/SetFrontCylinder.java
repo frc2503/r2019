@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.LiftSubsystem.CylinderState;
+import frc.robot.subsystems.CylinderState;
 
 public class SetFrontCylinder extends Command {
 
@@ -19,12 +19,13 @@ public class SetFrontCylinder extends Command {
   private CylinderState m_state;
 
   // Time it takes to extend or retract
-  private static final double ACTUATE_TIME = 2.0;
+  private static final double kActuateTime = 3.0;
 
   public SetFrontCylinder(CylinderState state) {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_liftSystem);
+    requires(Robot.m_frontLiftSystem);
     m_state = state;
+    m_timer = new Timer();
   }
 
   // Called just before this Command runs the first time
@@ -39,10 +40,10 @@ public class SetFrontCylinder extends Command {
     // Set solenoid value
     switch (m_state) {
       case kExtended:
-        Robot.m_liftSystem.setFrontCylinder(Value.kForward);
+        Robot.m_frontLiftSystem.setCylinder(Value.kForward);
         break;
       case kRetracted:
-        Robot.m_liftSystem.setFrontCylinder(Value.kReverse);
+        Robot.m_frontLiftSystem.setCylinder(Value.kReverse);
         break;
       default:
         break;
@@ -53,13 +54,13 @@ public class SetFrontCylinder extends Command {
   @Override
   protected boolean isFinished() {
     // Wait until the command has run for ACTUATE_TIME seconds
-    return m_timer.get() > ACTUATE_TIME;
+    return m_timer.get() > kActuateTime;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_liftSystem.setFrontCylinder(Value.kOff);
+    Robot.m_frontLiftSystem.setCylinder(Value.kOff);
   }
 
   // Called when another command which requires one or more of the same
