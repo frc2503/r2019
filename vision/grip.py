@@ -80,7 +80,7 @@ class GripPipeline:
         else:
             mode = cv2.RETR_LIST
         method = cv2.CHAIN_APPROX_SIMPLE
-        im2, contours, hierarchy =cv2.findContours(input_mat, mode=mode, method=method)
+        im2, contours, _ =cv2.findContours(input_mat, mode=mode, method=method)
         return contours
 
     @staticmethod
@@ -106,7 +106,7 @@ class GripPipeline:
         """
         output = []
         for contour in input_contours:
-            x,y,w,h = cv2.boundingRect(contour)
+            _,_,w,h = cv2.boundingRect(contour)
             if (w < min_width or w > max_width):
                 continue
             if (h < min_height or h > max_height):
