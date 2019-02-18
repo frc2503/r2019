@@ -42,8 +42,6 @@ public class Robot extends TimedRobot {
   public static ElevatorSubsystem m_elevatorSystem;
   public static FootSubsystem m_footSystem;
 
-  private PowerDistributionPanel m_pdp;
-
   private Command m_autoCommand;
   private Command m_teleopCommand;
 
