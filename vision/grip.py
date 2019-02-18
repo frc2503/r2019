@@ -80,7 +80,7 @@ class GripPipeline:
         else:
             mode = cv2.RETR_LIST
         method = cv2.CHAIN_APPROX_SIMPLE
-        im2, contours, _ =cv2.findContours(input_mat, mode=mode, method=method)
+        _, contours, _ =cv2.findContours(input_mat, mode=mode, method=method)
         return contours
 
     @staticmethod
