@@ -30,7 +30,6 @@ public class Robot extends TimedRobot {
   public static ElectricalSubsystem m_electicalSystem;
   public static BackLiftSubsystem m_backLiftSystem;
   public static FrontLiftSubsystem m_frontLiftSystem;
-  public static IntakeSubsystem m_intakeSystem;
   public static PneumaticsSubsystem m_pneumaticSystem;
   public static ElevatorSubsystem m_elevatorSystem;
   public static FootSubsystem m_footSystem;
@@ -49,7 +48,6 @@ public class Robot extends TimedRobot {
     m_driveSystem = new DriveSubsystem();
     m_backLiftSystem = new BackLiftSubsystem();
     m_frontLiftSystem = new FrontLiftSubsystem();
-    m_intakeSystem = new IntakeSubsystem();
     m_elevatorSystem = new ElevatorSubsystem();
     m_footSystem = new FootSubsystem();
     m_pneumaticSystem = new PneumaticsSubsystem();

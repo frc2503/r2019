@@ -11,9 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.RaiseSolenoids;
 import frc.robot.commands.SetBackCylinder;
-import frc.robot.commands.SetClamp;
 import frc.robot.commands.SetFrontCylinder;
-import frc.robot.commands.SetClamp.ClampState;
 import frc.robot.subsystems.CylinderState;
 
 /**
@@ -30,9 +28,6 @@ public class OI {
 
   private JoystickButton m_left3;
   private JoystickButton m_right3;
-  
-  private JoystickButton m_joyA;
-  private JoystickButton m_joyY;
 
   private JoystickButton m_right5;
 
@@ -46,12 +41,6 @@ public class OI {
     m_left3 = new JoystickButton(m_leftStick, 3);
     m_right3 = new JoystickButton(m_rightStick, 3);
     m_right5 = new JoystickButton(m_rightStick, 5);
-
-    m_joyA = new JoystickButton(m_gamepad, 2);
-    m_joyY = new JoystickButton(m_gamepad, 4);
-
-    m_joyY.whenPressed(new SetClamp(ClampState.kOpen));
-    m_joyA.whenPressed(new SetClamp(ClampState.kClosed)); 
     
     m_left3.whenPressed(new SetBackCylinder(CylinderState.kRetracted));
     // m_left4.whenPressed(new SetBackCylinder(CylinderState.kExtended));
