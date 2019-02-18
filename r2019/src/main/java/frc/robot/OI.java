@@ -25,11 +25,8 @@ public class OI {
   public Joystick m_rightStick;
   public Joystick m_gamepad;
 
-  // private JoystickButton m_left2;
-  // private JoystickButton m_right2;
-
-  private JoystickButton m_left4;
-  private JoystickButton m_right4;
+  // private JoystickButton m_left4;
+  // private JoystickButton m_right4;
 
   private JoystickButton m_left3;
   private JoystickButton m_right3;
@@ -44,10 +41,8 @@ public class OI {
     m_rightStick = new Joystick(RobotMap.joystickRight);
     m_gamepad = new Joystick(RobotMap.gamepad);
 
-    // m_left2 = new JoystickButton(m_leftStick, 2);
-    // m_right2 = new JoystickButton(m_rightStick, 2);
-    m_left4 = new JoystickButton(m_leftStick, 4);
-    m_right4 = new JoystickButton(m_rightStick, 4);
+    // m_left4 = new JoystickButton(m_leftStick, 4);
+    // m_right4 = new JoystickButton(m_rightStick, 4);
     m_left3 = new JoystickButton(m_leftStick, 3);
     m_right3 = new JoystickButton(m_rightStick, 3);
     m_right5 = new JoystickButton(m_rightStick, 5);
