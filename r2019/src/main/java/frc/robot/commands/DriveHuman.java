@@ -35,7 +35,7 @@ public class DriveHuman extends Command {
     double leftVal = m_leftStick.getY();
     double rightVal = m_rightStick.getY();
 
-    if (Robot.m_oi.m_leftStick.getRawButton(2)) {
+    if (m_leftStick.getRawButton(2)) {
       return;
     }
 
