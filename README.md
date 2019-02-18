@@ -6,30 +6,30 @@
 
 ## Wiring Overview
 ### PWM
-| Port  | Component  |
-| ------------ | ------------ |
-| 0  | Left Drive Talon SRs (Y-Split)  |
-| 1  |  Right Drive Talon SRs (Y-Split) |
-| 2  | Elevator Talon |
-| 3  | Foot Talon |
+| Port | Component                       |
+| ---- | ------------------------------- |
+| 0    | Left Drive Talon SRs (Y-Split)  |
+| 1    | Right Drive Talon SRs (Y-Split) |
+| 2    | Elevator Talon                  |
+| 3    | Foot Talon                      |
 
 ### USB (Driver Station)
-| Port  | Component  |
-| ------------ | ------------ |
-| 0  | Right Joystick  |
-| 1  | Left Joystick  |
-| 2  | Gamepad |
+| Port | Component      |
+| ---- | ------------   |
+| 0    | Right Joystick |
+| 1    | Left Joystick  |
+| 2    | Gamepad        |
 
 ### Pneumatics Control Module
-| Port  | Component  |
-| ------------ | ------------ |
-| 0  | Front Solenoid Forward  |
-| 1  | Front Solenoid Reverse  |
-| 2  | Back Solenoid Forward |
-| 3  | Back Solenoid Reverse |
+| Port | Component              |
+| ---- | ---------------------- |
+| 0    | Front Solenoid Forward |
+| 1    | Front Solenoid Reverse |
+| 2    | Back Solenoid Forward  |
+| 3    | Back Solenoid Reverse  |
 
 ### Cameras (rPi)
-| Device  | Camera  |
-| ------------ | ------------ |
-| /dev/video0  | Vision Processing Camera  |
-| /dev/video1  | Driver Camera  |
+| Device       | Camera                   |
+| ------------ | ------------------------ |
+| /dev/video0  | Vision Processing Camera |
+| /dev/video1  | Driver Camera            |
