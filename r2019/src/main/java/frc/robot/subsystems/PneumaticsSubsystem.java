@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.ProcessPneumatics;
 
 /**
  * Add your docs here.
@@ -23,6 +24,8 @@ public class PneumaticsSubsystem extends Subsystem {
     m_compressor = new Compressor();
 
     m_compressor.setClosedLoopControl(true);
+    m_compressor.start();
+    System.out.println("Set closed loop control for compressor");
   }
 
   public void clearStickyFaults() {
@@ -32,6 +35,14 @@ public class PneumaticsSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new ProcessPneumatics());
+  }
+
+  public boolean getPressureSwitch() {
+    return m_compressor.getPressureSwitchValue();
+  }
+
+  public double getCompressorCurrent() {
+    return m_compressor.getCompressorCurrent();
   }
 }

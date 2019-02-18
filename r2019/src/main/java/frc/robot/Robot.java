@@ -7,12 +7,17 @@
 
 package frc.robot;
 
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveHuman;
+import frc.robot.commands.SetBackCylinder;
+import frc.robot.commands.SetFrontCylinder;
 import frc.robot.subsystems.*;
 
 /**
@@ -28,7 +33,6 @@ public class Robot extends TimedRobot {
 
   // Subsystems
   public static DriveSubsystem m_driveSystem;
-  public static VisionSubsystem m_visionSystem;
   public static ElectricalSubsystem m_electicalSystem;
   public static BackLiftSubsystem m_backLiftSystem;
   public static FrontLiftSubsystem m_frontLiftSystem;
@@ -36,6 +40,9 @@ public class Robot extends TimedRobot {
   public static LightSubsystem m_lightSystem;
   public static PneumaticsSubsystem m_pneumaticSystem;
   public static ElevatorSubsystem m_elevatorSystem;
+  public static FootSubsystem m_footSystem;
+
+  private PowerDistributionPanel m_pdp;
 
   private Command m_autoCommand;
   private Command m_teleopCommand;
@@ -51,13 +58,22 @@ public class Robot extends TimedRobot {
 
     // Subsystems
     m_driveSystem = new DriveSubsystem();
-    // m_visionSystem = new VisionSubsystem();
     m_backLiftSystem = new BackLiftSubsystem();
     m_frontLiftSystem = new FrontLiftSubsystem();
     m_intakeSystem = new IntakeSubsystem();
     // m_lightSystem = new LightSubsystem();
     m_elevatorSystem = new ElevatorSubsystem();
+    m_footSystem = new FootSubsystem();
+    m_pneumaticSystem = new PneumaticsSubsystem();
     System.out.println("Subsystems Ready");
+
+    // Publish subsystems
+    SmartDashboard.putData(m_driveSystem);
+    // SmartDashboard.getNumberArray(key, defaultValue);
+
+    // m_pdp = new PowerDistributionPanel();
+
+    // SmartDashboard.put
 
     // m_autoChooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Autonomous Routine", m_autoChooser);
@@ -131,6 +147,12 @@ public class Robot extends TimedRobot {
 
     m_teleopCommand = new DriveHuman();
     m_teleopCommand.start();
+
+    SetFrontCylinder frontCommand = new SetFrontCylinder(CylinderState.kRetracted);
+    SetBackCylinder backCommand = new SetBackCylinder(CylinderState.kRetracted);
+
+    frontCommand.start();
+    backCommand.start();
   }
 
   /**

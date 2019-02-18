@@ -17,28 +17,30 @@
             ],
             "content": {
               "_type": "Camera Stream",
+              "_source0": "camera_server://Driver Camera",
               "_title": "Camera Stream",
               "Crosshair/Show crosshair": true,
               "Crosshair/Crosshair color": "#00FF00FF",
               "Controls/Show controls": true,
               "Controls/Rotation": "NONE",
-              "compression": 0.0,
-              "fps": 24,
-              "imageWidth": 640,
-              "imageHeight": 480
+              "compression": 100.0,
+              "fps": 15,
+              "imageWidth": 320,
+              "imageHeight": 240
             }
           },
-          "0,5": {
+          "5,4": {
             "size": [
-              5,
+              6,
               1
             ],
             "content": {
               "_type": "Basic FMS Info",
+              "_source0": "network_table:///FMSInfo",
               "_title": "FMS Info"
             }
           },
-          "5,1": {
+          "5,0": {
             "size": [
               3,
               3
@@ -51,20 +53,9 @@
               "Visuals/Show velocity vectors": true
             }
           },
-          "10,0": {
+          "8,1": {
             "size": [
-              3,
-              3
-            ],
-            "content": {
-              "_type": "PDP",
-              "_title": "PDP",
-              "Visuals/Show voltage and current values": true
-            }
-          },
-          "5,0": {
-            "size": [
-              5,
+              2,
               1
             ],
             "content": {
@@ -72,17 +63,18 @@
               "_title": "Autonomous Routine"
             }
           },
-          "10,3": {
+          "10,0": {
             "size": [
               3,
               3
             ],
             "content": {
               "_type": "Network Table Tree",
-              "_title": "Network Table Tree"
+              "_source0": "network_table:///GRIP/visionContourReport",
+              "_title": "Vision Output"
             }
           },
-          "6,4": {
+          "8,0": {
             "size": [
               2,
               1
@@ -92,68 +84,61 @@
               "_title": "Lift Subsystem"
             }
           },
-          "6,5": {
+          "8,2": {
             "size": [
               2,
               1
             ],
             "content": {
               "_type": "Basic Subsystem",
-              "_title": "Drive Subsystem"
+              "_title": "IntakeSubsystem"
             }
           },
-          "8,4": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Basic Subsystem",
-              "_title": "Intake Subsystem"
-            }
-          },
-          "8,5": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Basic Subsystem",
-              "_title": "Light Subsystem"
-            }
-          },
-          "5,4": {
+          "5,3": {
             "size": [
               1,
               1
             ],
             "content": {
               "_type": "Boolean Box",
+              "_source0": "network_table:///LiveWindow/Ungrouped/Compressor[0]/Enabled",
               "_title": "Compressor",
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "8,1": {
-            "size": [
-              2,
-              3
-            ],
-            "content": {
-              "_type": "List Layout",
-              "_title": "Autonomous Schedule",
-              "Layout/Label position": "BOTTOM",
-              "_children": []
-            }
-          },
-          "5,5": {
+          "6,3": {
             "size": [
               1,
               1
             ],
             "content": {
-              "_type": "Text View",
-              "_title": "Bandwidth"
+              "_type": "Boolean Box",
+              "_source0": "network_table:///LiveWindow/Ungrouped/Compressor[0]/Pressure switch",
+              "_title": "Pressure Switch",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "5,5": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Basic Subsystem",
+              "_title": "Basic Subsystem"
+            }
+          },
+          "11,3": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Graph",
+              "_title": "Graph",
+              "Graph/Visible time": 30.0
             }
           }
         }
@@ -161,9 +146,9 @@
     }
   ],
   "windowGeometry": {
-    "x": 0.0,
-    "y": 25.0,
-    "width": 1920.0,
-    "height": 1055.0
+    "x": -8.0,
+    "y": -8.0,
+    "width": 1936.0,
+    "height": 1056.0
   }
 }
