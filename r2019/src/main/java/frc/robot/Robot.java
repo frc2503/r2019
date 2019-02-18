@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.DriveHuman;
 import frc.robot.subsystems.*;
 
 /**
@@ -28,14 +27,14 @@ public class Robot extends TimedRobot {
 
   // Subsystems
   public static DriveSubsystem m_driveSystem;
-  public static VisionSubsystem m_visionSystem;
   public static ElectricalSubsystem m_electicalSystem;
-  public static LiftSubsystem m_liftSystem;
-  public static IntakeSubsystem m_intakeSystem;
-  public static LightSubsystem m_lightSystem;
+  public static BackLiftSubsystem m_backLiftSystem;
+  public static FrontLiftSubsystem m_frontLiftSystem;
+  public static PneumaticsSubsystem m_pneumaticSystem;
+  public static ElevatorSubsystem m_elevatorSystem;
+  public static FootSubsystem m_footSystem;
 
   private Command m_autoCommand;
-  private Command m_teleopCommand;
 
   private SendableChooser<Command> m_autoChooser = new SendableChooser<>();
 
@@ -45,26 +44,27 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    // Operator Input
-    m_oi = new OI();
-    System.out.println("✓ Operator Input Ready");
-
     // Subsystems
     m_driveSystem = new DriveSubsystem();
-    m_visionSystem = new VisionSubsystem();
+    m_backLiftSystem = new BackLiftSubsystem();
+    m_frontLiftSystem = new FrontLiftSubsystem();
+    m_elevatorSystem = new ElevatorSubsystem();
+    m_footSystem = new FootSubsystem();
+    m_pneumaticSystem = new PneumaticsSubsystem();
     m_electicalSystem = new ElectricalSubsystem();
-    m_liftSystem = new LiftSubsystem();
-    m_intakeSystem = new IntakeSubsystem();
-    m_lightSystem = new LightSubsystem();
     System.out.println("Subsystems Ready");
 
     // m_autoChooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Autonomous Routine", m_autoChooser);
 
-    // Clear PCM and PDP sticky faults
-    m_electicalSystem.clearStickyFaults();
-    m_liftSystem.clearStickyFaults();
+    // Clear sticky faults
+    m_pneumaticSystem.clearStickyFaults();
+    
     System.out.println("Sticky faults cleared");
+
+    // Operator Input
+    m_oi = new OI();
+    System.out.println("Operator Input Ready");
 
     System.out.println("READY TO LAUNCH");
   }
@@ -87,11 +87,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    // Cancel the teleop command
-    if (m_teleopCommand != null) {
-      m_teleopCommand.cancel();
-    }
-
     // Cancel the auto command
     if (m_autoCommand != null) {
       m_autoCommand.cancel();
@@ -114,18 +109,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    // Cancel the teleop command
-    if (m_teleopCommand != null) {
-      m_teleopCommand.cancel();
-    }
-
     // Cancel the auto command
     if (m_autoCommand != null) {
       m_autoCommand.cancel();
     }
-
-    m_teleopCommand = new DriveHuman();
-    m_teleopCommand.start();
   }
 
   /**

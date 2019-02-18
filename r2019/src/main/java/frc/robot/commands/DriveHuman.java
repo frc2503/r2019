@@ -35,6 +35,10 @@ public class DriveHuman extends Command {
     double leftVal = m_leftStick.getY();
     double rightVal = m_rightStick.getY();
 
+    if (m_leftStick.getRawButton(2)) {
+      return;
+    }
+
     // The values need to be inverted because we want "up" on the controller to
     // be forward, which is positive
 
