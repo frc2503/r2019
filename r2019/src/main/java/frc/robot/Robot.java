@@ -12,9 +12,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.DriveHuman;
-import frc.robot.commands.SetBackCylinder;
-import frc.robot.commands.SetFrontCylinder;
 import frc.robot.subsystems.*;
 
 /**
@@ -39,7 +36,6 @@ public class Robot extends TimedRobot {
   public static FootSubsystem m_footSystem;
 
   private Command m_autoCommand;
-  private Command m_teleopCommand;
 
   private SendableChooser<Command> m_autoChooser = new SendableChooser<>();
 
@@ -49,7 +45,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-
     // Subsystems
     m_driveSystem = new DriveSubsystem();
     m_backLiftSystem = new BackLiftSubsystem();
@@ -94,11 +89,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    // Cancel the teleop command
-    if (m_teleopCommand != null) {
-      m_teleopCommand.cancel();
-    }
-
     // Cancel the auto command
     if (m_autoCommand != null) {
       m_autoCommand.cancel();
@@ -121,24 +111,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    // Cancel the teleop command
-    if (m_teleopCommand != null) {
-      m_teleopCommand.cancel();
-    }
-
     // Cancel the auto command
     if (m_autoCommand != null) {
       m_autoCommand.cancel();
     }
-
-    m_teleopCommand = new DriveHuman();
-    m_teleopCommand.start();
-
-    SetFrontCylinder frontCommand = new SetFrontCylinder(CylinderState.kRetracted);
-    SetBackCylinder backCommand = new SetBackCylinder(CylinderState.kRetracted);
-
-    frontCommand.start();
-    backCommand.start();
   }
 
   /**
