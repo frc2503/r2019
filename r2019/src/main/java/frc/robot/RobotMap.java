@@ -27,12 +27,10 @@ public class RobotMap {
   public static final int gamepad = 2;
 
   // Solenoids
-  public static final int solenoidFront1 = 0;
-  public static final int solenoidFront2 = 1;
-  public static final int solenoidBack1 = 2;
-  public static final int solenoidBack2 = 3;
-  public static final int solenoidArm1 = 4;
-  public static final int solenoidArm2 = 5;
+  public static final int solenoidFrontForward = 0;
+  public static final int solenoidFrontReverse = 1;
+  public static final int solenoidBackForward = 2;
+  public static final int solenoidBackReverse = 3;
 
   // Hatch clamp servo
   public static final int servoClamp = 4;

@@ -24,7 +24,6 @@ public class PneumaticsSubsystem extends Subsystem {
 
     m_compressor.setClosedLoopControl(true);
     m_compressor.start();
-    System.out.println("Set closed loop control for compressor");
   }
 
   public void clearStickyFaults() {
