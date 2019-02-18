@@ -63,6 +63,7 @@ public class Robot extends TimedRobot {
     m_elevatorSystem = new ElevatorSubsystem();
     m_footSystem = new FootSubsystem();
     m_pneumaticSystem = new PneumaticsSubsystem();
+    m_electicalSystem = new ElectricalSubsystem();
     System.out.println("Subsystems Ready");
 
     // Publish subsystems
