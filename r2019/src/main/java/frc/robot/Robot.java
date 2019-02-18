@@ -34,7 +34,6 @@ public class Robot extends TimedRobot {
   public static BackLiftSubsystem m_backLiftSystem;
   public static FrontLiftSubsystem m_frontLiftSystem;
   public static IntakeSubsystem m_intakeSystem;
-  public static LightSubsystem m_lightSystem;
   public static PneumaticsSubsystem m_pneumaticSystem;
   public static ElevatorSubsystem m_elevatorSystem;
   public static FootSubsystem m_footSystem;
@@ -56,20 +55,11 @@ public class Robot extends TimedRobot {
     m_backLiftSystem = new BackLiftSubsystem();
     m_frontLiftSystem = new FrontLiftSubsystem();
     m_intakeSystem = new IntakeSubsystem();
-    // m_lightSystem = new LightSubsystem();
     m_elevatorSystem = new ElevatorSubsystem();
     m_footSystem = new FootSubsystem();
     m_pneumaticSystem = new PneumaticsSubsystem();
     m_electicalSystem = new ElectricalSubsystem();
     System.out.println("Subsystems Ready");
-
-    // Publish subsystems
-    SmartDashboard.putData(m_driveSystem);
-    // SmartDashboard.getNumberArray(key, defaultValue);
-
-    // m_pdp = new PowerDistributionPanel();
-
-    // SmartDashboard.put
 
     // m_autoChooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Autonomous Routine", m_autoChooser);
