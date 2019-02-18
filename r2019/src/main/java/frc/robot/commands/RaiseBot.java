@@ -11,11 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.subsystems.CylinderState;
 
 public class RaiseBot extends CommandGroup {
-  /**
-   * Add your docs here.
-   */
+  
   public RaiseBot() {
-    
+
     addParallel(new SetFrontCylinder(CylinderState.kExtended));
     addParallel(new SetBackCylinder(CylinderState.kExtended));
   }

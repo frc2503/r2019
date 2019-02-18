@@ -19,7 +19,7 @@ public class SetBackCylinder extends Command {
   private CylinderState m_state;
 
   // Time it takes to extend or retract
-  private static final double ACTUATE_TIME = 2.0;
+  private static final double kActuateTime = 3.0;
 
   public SetBackCylinder(CylinderState state) {
     // Use requires() here to declare subsystem dependencies
@@ -54,7 +54,7 @@ public class SetBackCylinder extends Command {
   @Override
   protected boolean isFinished() {
     // Wait until the command has run for ACTUATE_TIME seconds
-    return m_timer.get() > ACTUATE_TIME;
+    return m_timer.get() > kActuateTime;
   }
 
   // Called once after isFinished returns true

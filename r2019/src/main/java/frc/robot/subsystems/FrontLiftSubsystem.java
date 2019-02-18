@@ -22,7 +22,7 @@ public class FrontLiftSubsystem extends Subsystem {
   private DoubleSolenoid m_solenoid;
 
   public FrontLiftSubsystem() {
-    m_solenoid = new DoubleSolenoid(RobotMap.solenoidFront1, RobotMap.solenoidFront2);
+    m_solenoid = new DoubleSolenoid(RobotMap.solenoidFrontForward, RobotMap.solenoidFrontReverse);
 
     // Default
     m_solenoid.set(Value.kOff);
@@ -31,7 +31,6 @@ public class FrontLiftSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new SetLiftCylinders(CylinderState.kRetracted));
   }
 
   public void setCylinder(Value state) {

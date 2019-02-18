@@ -22,7 +22,7 @@ public class BackLiftSubsystem extends Subsystem {
   private DoubleSolenoid m_solenoid;
 
   public BackLiftSubsystem() {
-    m_solenoid = new DoubleSolenoid(RobotMap.solenoidBack1, RobotMap.solenoidBack2);
+    m_solenoid = new DoubleSolenoid(RobotMap.solenoidBackForward, RobotMap.solenoidBackReverse);
 
     // Default
     m_solenoid.set(Value.kOff);
@@ -31,7 +31,6 @@ public class BackLiftSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new SetLiftCylinders(CylinderState.kRetracted));
   }
 
   public void setCylinder(Value state) {
