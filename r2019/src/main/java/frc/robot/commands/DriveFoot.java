@@ -24,10 +24,8 @@ public class DriveFoot extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double val = Robot.m_oi.m_leftStick.getY() * -0.5;
-    System.out.println("Setting foot to " + val);
     if (Robot.m_oi.m_leftStick.getRawButton(2)) {
-      Robot.m_footSystem.setFoot(val * -1.0);
+      Robot.m_footSystem.setFoot(Robot.m_oi.m_leftStick.getY() * 0.5);
     } else {
       Robot.m_footSystem.setFoot(0.0);;
     }

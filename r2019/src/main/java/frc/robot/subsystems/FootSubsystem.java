@@ -13,7 +13,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.DriveFoot;
 
 /**
- * Add your docs here.
+ * Subsystem for the driven motor on the bottom of the front cylinder
  */
 public class FootSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
@@ -32,8 +32,6 @@ public class FootSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new DriveFoot());
-    System.out.println("FOOT COMMAND SET");
   }
 }
