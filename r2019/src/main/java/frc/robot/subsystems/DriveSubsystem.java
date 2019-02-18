@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 
 /**
@@ -49,6 +50,11 @@ public class DriveSubsystem extends Subsystem {
    * @param right Speed of the right motors
    */
   public void driveTank(double left, double right) {
+    // SmartDashboard
+    System.out.println("Driving");
+    SmartDashboard.putNumber("leftTrack", left);
+    SmartDashboard.putNumber("rightTrack", right);
+    
     m_drive.tankDrive(left, right, false);
   }
 }

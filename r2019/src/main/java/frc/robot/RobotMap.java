@@ -24,6 +24,7 @@ public class RobotMap {
   // Human input devices
   public static final int joystickLeft = 1;
   public static final int joystickRight = 0;
+  public static final int gamepad = 2;
 
   // Solenoids
   public static final int solenoidFront1 = 0;

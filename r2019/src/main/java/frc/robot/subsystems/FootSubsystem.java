@@ -7,28 +7,33 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+import frc.robot.commands.DriveFoot;
 
 /**
- * Subsystem for our USB webcam
+ * Add your docs here.
  */
-public class VisionSubsystem extends Subsystem {
+public class FootSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public VisionSubsystem() {
-    // Just use the only camera plugged in.
-    // If we need more cameras, they will need to be indexed
-    UsbCamera mainCamera = CameraServer.getInstance().startAutomaticCapture();
-    // FIXME: Lower to meet bandwidth requirements
-    mainCamera.setResolution(640, 480);
-    mainCamera.setFPS(24);
+  private Talon m_talonFoot;
+
+  public FootSubsystem() {
+    m_talonFoot = new Talon(RobotMap.talonFoot);
+  }
+
+  public void setFoot(double value) {
+    m_talonFoot.set(value);
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new DriveFoot());
+    System.out.println("FOOT COMMAND SET");
   }
 }

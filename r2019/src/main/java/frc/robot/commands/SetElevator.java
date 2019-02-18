@@ -12,7 +12,7 @@ import frc.robot.Robot;
 
 public class SetElevator extends Command {
 
-  private static final double kElevatorSpeed = 0.15;
+  private static final double kElevatorSpeed = 0.25;
 
   public SetElevator() {
     // Use requires() here to declare subsystem dependencies
@@ -27,12 +27,12 @@ public class SetElevator extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    switch (Robot.m_oi.m_rightStick.getPOV()) {
+    switch (Robot.m_oi.m_gamepad.getPOV()) {
       case 0:
-        Robot.m_elevatorSystem.setElevator(kElevatorSpeed);
+        Robot.m_elevatorSystem.setElevator(kElevatorSpeed * -1);
         break;
       case 180:
-        Robot.m_elevatorSystem.setElevator(kElevatorSpeed * -1.0);
+        Robot.m_elevatorSystem.setElevator(kElevatorSpeed);
         break;
       default:
         Robot.m_elevatorSystem.setElevator(0.0);
