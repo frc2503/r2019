@@ -16,18 +16,13 @@ public class DriveFoot extends Command {
     requires(Robot.m_footSystem);
   }
 
-  // Called just before this Command runs the first time
-  @Override
-  protected void initialize() {
-  }
-
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     if (Robot.m_oi.m_leftStick.getRawButton(2)) {
       Robot.m_footSystem.setFoot(Robot.m_oi.m_leftStick.getY() * 0.5);
     } else {
-      Robot.m_footSystem.setFoot(0.0);;
+      Robot.m_footSystem.setFoot(0.0);
     }
   }
 
