@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.AimAtHatch;
 import frc.robot.commands.RaiseBot;
 import frc.robot.commands.SetBackCylinder;
 import frc.robot.commands.SetFrontCylinder;
@@ -28,7 +29,10 @@ public class OI {
 
   private JoystickButton m_left3;
   private JoystickButton m_right3;
+
   private JoystickButton m_right5;
+
+  private JoystickButton m_left1;
 
   public OI() {
     m_leftStick = new Joystick(RobotMap.joystickLeft);
@@ -40,6 +44,9 @@ public class OI {
     m_left3 = new JoystickButton(m_leftStick, 3);
     m_right3 = new JoystickButton(m_rightStick, 3);
     m_right5 = new JoystickButton(m_rightStick, 5);
+    m_left1 = new JoystickButton(m_rightStick, 1);
+
+    m_left1.whileHeld(new AimAtHatch());
     
     m_left3.whenPressed(new SetBackCylinder(CylinderState.kRetracted));
     // m_left4.whenPressed(new SetBackCylinder(CylinderState.kExtended));
