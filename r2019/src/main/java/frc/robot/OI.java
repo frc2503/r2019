@@ -28,7 +28,6 @@ public class OI {
 
   private JoystickButton m_left3;
   private JoystickButton m_right3;
-
   private JoystickButton m_right5;
 
   public OI() {
