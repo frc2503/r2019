@@ -4,13 +4,11 @@
 [![Travis CI](https://img.shields.io/travis/frc2503/r2019.svg?style=popout-square)](https://travis-ci.org/frc2503/r2019)
 [![Codacy](https://img.shields.io/codacy/grade/a52adf6bbffc45b79713ea58ca2f1538.svg?style=popout-square)](https://app.codacy.com/project/hunterkva/r2019/dashboard)
 
-
-
 ## Robot Overview
 
-![robot2019](https://user-images.githubusercontent.com/46372814/53132017-fe720400-3533-11e9-9276-8d77b03415ab.png)
-
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/46372814/53132017-fe720400-3533-11e9-9276-8d77b03415ab.png">
+</p>
 
 2503's Deep Space robot is capable of placing hatch panels on the cargo ship, placing hatch panels on the first level of either rocket, and climbing to the level 3 habitat.
 
