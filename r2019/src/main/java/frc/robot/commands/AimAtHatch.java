@@ -41,7 +41,7 @@ public class AimAtHatch extends Command {
     if (Math.abs(turnAmount) < 30) {
       turnSpeed *= 0;
     }
-    System.out.println(turnAmount + ", " + turnSpeed);
+    // System.out.println(turnAmount + ", " + turnSpeed);
     Robot.m_driveSystem.driveTank(turnSpeed, -turnSpeed);
   }
 

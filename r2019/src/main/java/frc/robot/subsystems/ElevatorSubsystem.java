@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -26,9 +27,13 @@ public class ElevatorSubsystem extends Subsystem {
   }
 
   private Talon m_elevatorTalon;
+  private DigitalInput m_bottomSwitch;
+  private DigitalInput m_topSwitch;
 
   public ElevatorSubsystem() {
     m_elevatorTalon = new Talon(RobotMap.talonElevator);
+    m_bottomSwitch = new DigitalInput(RobotMap.switchBottom);
+    m_topSwitch = new DigitalInput(RobotMap.switchTop);
   }
 
   @Override
@@ -38,6 +43,18 @@ public class ElevatorSubsystem extends Subsystem {
   }
 
   public void setElevator(double value) {
-    m_elevatorTalon.set(value);
+    System.out.println("top: " + (!m_topSwitch.get() ? "TRUE" : "FALSE"));
+    System.out.println("bottom: " + (!m_bottomSwitch.get() ? "TRUE" : "FALSE"));
+    if (value < 0.0 && m_topSwitch.get()) {
+      m_elevatorTalon.set(value);
+      System.out.println("talon set " + value);
+    } else if (value > 0.0 && m_bottomSwitch.get()) {
+      m_elevatorTalon.set(value);
+      System.out.println("talon set " + value);
+    } else {
+      m_elevatorTalon.set(0.0);
+      System.out.println("talon set " + 0);
+    }
+    
   }
 }
