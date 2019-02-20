@@ -34,7 +34,7 @@ public class AimAtHatch extends Command {
     // if (Math.abs(turnSpeed) < 0.25) {
     //   turnSpeed *= 1 / (30 - Math.abs(turnAmount));
     // }
-    double turnSpeed = 0.45;
+    double turnSpeed = 0.4;
     if (turnAmount > 0) {
       turnSpeed *= -1.0;
     } 
