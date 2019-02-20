@@ -40,4 +40,8 @@ public class RobotMap {
 
   // Elevator
   public static final int talonElevator = 2;
+
+  // Limit switches
+  public static final int switchBottom = 0;
+  public static final int switchTop = 1;
 }
