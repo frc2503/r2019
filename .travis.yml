@@ -5,4 +5,4 @@ jdk:
 
 script:
   - cd ./r2019
-  - ./gradlew build
+  - ./gradlew build --console plain
