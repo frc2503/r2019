@@ -43,17 +43,17 @@ public class ElevatorSubsystem extends Subsystem {
   }
 
   public void setElevator(double value) {
-    System.out.println("top: " + (!m_topSwitch.get() ? "TRUE" : "FALSE"));
-    System.out.println("bottom: " + (!m_bottomSwitch.get() ? "TRUE" : "FALSE"));
+    // System.out.println("top: " + (!m_topSwitch.get() ? "TRUE" : "FALSE"));
+    // System.out.println("bottom: " + (!m_bottomSwitch.get() ? "TRUE" : "FALSE"));
     if (value < 0.0 && m_topSwitch.get()) {
       m_elevatorTalon.set(value);
-      System.out.println("talon set " + value);
+      // System.out.println("talon set " + value);
     } else if (value > 0.0 && m_bottomSwitch.get()) {
       m_elevatorTalon.set(value);
-      System.out.println("talon set " + value);
+      // System.out.println("talon set " + value);
     } else {
       m_elevatorTalon.set(0.0);
-      System.out.println("talon set " + 0);
+      // System.out.println("talon set " + 0);
     }
     
   }

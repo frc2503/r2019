@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 import frc.robot.subsystems.CylinderState;
 
 public class RaiseBot extends CommandGroup {
@@ -15,6 +16,7 @@ public class RaiseBot extends CommandGroup {
   public RaiseBot() {
 
     addParallel(new SetFrontCylinder(CylinderState.kExtended));
+    addSequential(new WaitCommand(0.1));
     addParallel(new SetBackCylinder(CylinderState.kExtended));
   }
 }
